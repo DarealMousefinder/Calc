@@ -1,0 +1,187 @@
+/* --- THEME ROOT CONFIGURATIONS --- */
+/* Default Light Theme variables */
+:root {
+    --bg-color: #f4f4f9;
+    --calc-bg: #ffffff;
+    --display-bg: #f0f0f0;
+    --display-text: #000000;
+    --btn-bg: #e0e0e0;
+    --btn-text: #000000;
+    --btn-hover: #d4d4d4;
+    --btn-active: #b0b0b0;
+    --advanced-bg: #d0d0d0;
+}
+
+/* Dark Theme variables activated via data-theme attribute */
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --calc-bg: #333333;
+    --display-bg: #222222;
+    --display-text: #ffffff;
+    --btn-bg: #4a4a4a;
+    --btn-text: #ffffff;
+    --btn-hover: #5a5a5a;
+    --btn-active: #6a6a6a;
+    --advanced-bg: #a5a5a5;
+}
+
+/* --- BASE STYLES --- */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    transition: background-color 0.3s ease;
+}
+
+.calculator {
+    background-color: var(--calc-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    transition: background-color 0.3s ease;
+}
+
+#display {
+    width: 100%;
+    height: 65px;
+    background-color: var(--display-bg);
+    border: none;
+    font-size: 2.2rem;
+    color: var(--display-text);
+    text-align: right;
+    padding: 0 15px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    padding: 18px 10px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    font-weight: bold;
+    transition: background 0.15s, transform 0.05s, color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--btn-hover);
+}
+
+button:active, button.active-key {
+    transform: scale(0.95);
+    background-color: var(--btn-active) !important;
+}
+
+.operator {
+    background-color: #ff9500;
+    color: white;
+}
+
+.operator:hover {
+    background-color: #e08500;
+}
+
+.advanced {
+    background-color: var(--advanced-bg);
+}
+
+.equal-btn {
+    background-color: #25d366;
+    color: white;
+    grid-row: span 2;
+}
+
+.equal-btn:hover {
+    background-color: #1ebe57;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+/* --- TOGGLE SWITCH UI --- */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: relative;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    height: 34px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+.slider:before {
+    background-color: white;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+    z-index: 2;
+}
+
+.round {
+    border-radius: 34px;
+}
+
+.round:before {
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4a4a4a;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.icon {
+    font-size: 14px;
+    user-select: none;
+    z-index: 1;
+}
