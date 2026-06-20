@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Theme Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Theme Toggle Switch -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+                <span class="icon sun">☀️</span>
+                <span class="icon moon">🌙</span>
+            </div>
+        </label>
+    </div>
+
+    <div class="calculator">
+        <!-- Display Screen -->
+        <input type="text" id="display" readonly placeholder="0">
+        
+        <!-- Keypad Grid -->
+        <div class="buttons">
+            <!-- Row 1: Clear & Advanced Modifiers -->
+            <button onclick="clearDisplay()" class="operator" id="key-Escape">C</button>
+            <button onclick="calculateSquareRoot()" class="advanced" id="key-r">√</button>
+            <button onclick="appendValue('**')" class="advanced" id="key-^">x²</button>
+            <button onclick="calculatePercentage()" class="advanced" id="key-%">%</button>
+
+            <!-- Row 2: Delete & Basic Operators -->
+            <button onclick="deleteLast()" class="operator" id="key-Backspace">DE</button>
+            <button onclick="appendValue('/')" class="operator" id="key-/">/</button>
+            <button onclick="appendValue('*')" class="operator" id="key-*">*</button>
+            <button onclick="appendValue('-')" class="operator" id="key--">-</button>
+
+            <!-- Row 3: Numbers & Plus -->
+            <button onclick="appendValue('7')" id="key-7">7</button>
+            <button onclick="appendValue('8')" id="key-8">8</button>
+            <button onclick="appendValue('9')" id="key-9">9</button>
+            <button onclick="appendValue('+')" class="operator" id="key-+">+</button>
+
+            <!-- Rows 4 & 5: Numbers, Layout Grid & Equals -->
+            <button onclick="appendValue('4')" id="key-4">4</button>
+            <button onclick="appendValue('5')" id="key-5">5</button>
+            <button onclick="appendValue('6')" id="key-6">6</button>
+            <button onclick="calculate()" class="equal-btn" id="key-Enter">=</button>
+
+            <button onclick="appendValue('1')" id="key-1">1</button>
+            <button onclick="appendValue('2')" id="key-2">2</button>
+            <button onclick="appendValue('3')" id="key-3">3</button>
+
+            <button onclick="appendValue('0')" class="zero" id="key-0">0</button>
+            <button onclick="appendValue('.')" id="key-.">.</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
